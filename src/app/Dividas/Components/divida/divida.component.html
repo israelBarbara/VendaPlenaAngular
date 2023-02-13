@@ -1,0 +1,103 @@
+<!-- <div *ngIf="divida!== null">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <h1> {{divida.valor}} </h1>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- (click) = "showInsertForm()" *ngIf="tbVisibility" -->
+<div class="container p-5" *ngIf="tbVisibility" >
+    <div class="border border-light rounder p-5" > 
+        <div>
+        <button type="button" class="btn btn-sm btn-secondary" (click) = "showInsertForm()" >
+            Nova Divida
+        </button>
+        <button type="submit" class="btn btn-sm btn-lightn" (click)="VoltarInicial()" >Voltar</button>
+    </div>
+        <br/>
+    <div *ngIf="cliente">
+        Dividas pendentes {{cliente.nome}}
+    </div>
+
+    <hr/>
+
+    <table class="table table-striped table-hover table-sm" *ngIf="dividas"> 
+        <tr class="thead-light"> 
+            <th> Valor </th>
+            <th> Data criação </th>
+            <th> Ação </th>
+        </tr>
+
+        <tr *ngFor ="let divida of dividas">
+            <td> {{divida.valor}}</td>
+            <td> {{divida.dataCriacao}}</td>
+            <td> <button type="button" class="btn btn-sm btn-outline-secondary"(click)="Pagar(divida.id)">Pagar</button> </td>
+            <!-- <td> {{divida.cpf}}</td>
+            <td> {{divida.idade}}</td>
+            <td> {{divida.totalDivida}}</td> -->
+            <!-- <td> 
+                 <a [routerLink]="['/dividas',cliente.id]" class="btn btn-secondary"> Dividas </a>
+                 <button type="button" class="btn btn-sm btn-outline-danger">excluir</button>
+            </td> -->
+        </tr>
+
+    </table>
+
+    <div *ngIf="cliente">
+        Total devido: {{cliente.totalDivida}}
+    </div>
+
+
+</div>
+
+</div>
+
+<div class="container p-5" *ngIf="formVisibility">
+    <!-- <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+    <div class="row"> 
+        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario"> 
+            <h3>{{tituloFormulario}}</h3>
+            <hr/>
+
+            <form [formGroup] = "formulario" (ngSubmit) = "EnviarFormulario()" >
+                <div class="form-group"> 
+                    <label>Valor</label>
+                    <input type="number" class="form-control form-control-sm" formControlName="valor"/>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div> 
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
+                        </div>
+                        <div class="pl-1"> 
+                            <button type="submit" class="btn btn-sm btn-lightn" (click)="Voltar()">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- <table class="table table-striped table-hover tabble-sm" *ngIf="dividas"> 
+    <tr class="thead-light"> 
+        <th> valor </th>
+        <th> Data Criação </th>
+    </tr>
+
+    <tr *ngFor ="let divida of dividas"> 
+        <td> {{divida.valor}}</td>
+        <td> {{divida.dataCriacao}}</td>
+    </tr>
+
+</table> -->
+
