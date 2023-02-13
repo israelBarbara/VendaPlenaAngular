@@ -1,13 +1,4 @@
-<!-- <div *ngIf="divida!== null">
-    <div class="row">
-        <div class="col-12">
-            <div class="text-center">
-                <h1> {{divida.valor}} </h1>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- (click) = "showInsertForm()" *ngIf="tbVisibility" -->
+
 <div class="container p-5" *ngIf="tbVisibility" >
     <div class="border border-light rounder p-5" > 
         <div>
@@ -34,13 +25,6 @@
             <td> {{divida.valor}}</td>
             <td> {{divida.dataCriacao}}</td>
             <td> <button type="button" class="btn btn-sm btn-outline-secondary"(click)="Pagar(divida.id)">Pagar</button> </td>
-            <!-- <td> {{divida.cpf}}</td>
-            <td> {{divida.idade}}</td>
-            <td> {{divida.totalDivida}}</td> -->
-            <!-- <td> 
-                 <a [routerLink]="['/dividas',cliente.id]" class="btn btn-secondary"> Dividas </a>
-                 <button type="button" class="btn btn-sm btn-outline-danger">excluir</button>
-            </td> -->
         </tr>
 
     </table>
